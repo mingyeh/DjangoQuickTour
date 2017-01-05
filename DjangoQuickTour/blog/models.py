@@ -12,6 +12,9 @@ class Article(models.Model):
 	def __unicode__(self):
 		return self.title
 
+	def __str__(self):
+		return self.__unicode__(self)
+
 	class Meta:
 		verbose_name = '文章'
 		verbose_name_plural = '文章'
