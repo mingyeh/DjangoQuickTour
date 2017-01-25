@@ -2,21 +2,21 @@ body{
     background-color: #FFFFAA;
 }
 .pageTitle{
-    font-family: 黑体;
+    font-family: STHeiti,SimHei;
     font-size: 50px;
     font-weight: bold;
     text-decoration: none;
     color: #888888;
 }
 .articleTitle{
-    font-family: 宋体;
+    font-family: STHeiti,SimHei;
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
-    color: blue;
+    color: black;
 }
 .articleAuthor{
-    font-family: 宋体;
+    font-family: STSong,SimSum;
     font-size: 14px;
     font-weight: bold;
     text-decoration: none;
@@ -24,9 +24,18 @@ body{
     color: black;
 }
 .articleBody{
-    font-family: 宋体;
+    font-family: STSong,SimSum;
     font-size: 12px;
+    line-height: 16px;
     font-weight: normal;
     text-decoration: none;
     color: black;
+}
+a:link,active,hover,visited{
+    font-family: STSong,SimSum;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: blue;
 }
