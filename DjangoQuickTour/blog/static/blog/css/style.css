@@ -1,0 +1,32 @@
+body{
+    background-color: #FFFFAA;
+}
+.pageTitle{
+    font-family: 黑体;
+    font-size: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #888888;
+}
+.articleTitle{
+    font-family: 宋体;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: blue;
+}
+.articleAuthor{
+    font-family: 宋体;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    font-style: italic;
+    color: black;
+}
+.articleBody{
+    font-family: 宋体;
+    font-size: 12px;
+    font-weight: normal;
+    text-decoration: none;
+    color: black;
+}

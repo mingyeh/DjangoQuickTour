@@ -1,11 +1,22 @@
+{% load static %}
 <htmL>
     <head>
-        <title>模板测试</title>
+        <title>欢迎光临「大狗汪叨叨」</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'blog/css/style.css' %}">
     </head>
     <body>
-        <h1>大狗汪叨叨</h1>
-        <br/>
-        <img src='https://img5.doubanio.com/icon/u1200667-6.jpg' />
-        <span>{{ authorName }}, 这是个测试的模板</span>
+        <div style="top:20px;left:20px;position:absolute;">
+            <img src="{% static 'blog/images/logo.jpeg' %}" style="height:100px;" />
+        </div>
+        <div style="top:20px;left:200px;position:absolute;">
+            <span class="pageTitle">大狗汪叨叨</span>
+        </div>
+        <div style="left:20px;top:150px;position:absolute;width:600px;background-color:#FFFFFF;padding:20px;">
+        {% for article in all_articles %}
+            <h2 class="articleTitle">{{article.title}}</h2>
+            <p class="articleAuthor">by: {{article.author}} {{article.timestamp}}</p>
+            <span class="articleBody">{{article.body|linebreaks}}</span>
+        {%  endfor %}
+        </div>
     </body>
 </html>
