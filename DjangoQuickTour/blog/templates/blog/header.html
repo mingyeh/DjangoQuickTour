@@ -1,0 +1,17 @@
+{% load static %}
+<div id="headerLogoSection">
+	<img src="{% static 'blog/images/logo.jpeg' %}" style="height:100px;" />
+</div>
+<div id="headerTitleSection">
+	<span class="siteTitle">大狗汪叨叨</span>
+</div>
+<div id="headerNavSection">
+    <span class="categoryItem">
+        <a class="categoryLink" href="{% url 'index' %}">首页</a>
+    </span>
+    {% for category in categories %}
+    <span class="categoryItem">
+        <a class="categoryLink" href="{% url 'category' category.id %}">{{category.name}}</a>
+    </span>
+    {% endfor %}
+</div>

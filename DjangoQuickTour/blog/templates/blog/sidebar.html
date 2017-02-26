@@ -1,0 +1,5 @@
+{% for archive in archives %}
+<div style="width:100%">
+    <a class="archiveLink" href="{% url 'archive' archiveYear=archive.year archiveMonth=archive.month %}">{{archive.displayText}}</a>&nbsp;({{archive.articleCount}})
+</div>
+{% endfor %}

@@ -1,7 +1,76 @@
 body{
     background-color: #FFFFAA;
+    position: relative;
+    padding: 20px;
 }
-.pageTitle{
+#headerContainer{
+    height: 100px;
+}
+#headerLogoSection{
+    top: 0px;
+    left: 0px;
+    position:relative;
+}
+#headerTitleSection{
+    top:-100px;
+    left: 150px;
+    position:relative;
+}
+#headerNavSection{
+    background-color: orange;
+    position: relative;
+    height: 20px;
+    width: 490px;
+    top: -75px;
+    left: 150px
+}
+#contentContainer{
+    left: 0px;
+    top: 0px;
+    margin-top: 20px;
+    position: relative;
+    width: 600px;
+    min-height: 600px;
+    background-color: #FFFFFF;
+    padding: 20px;
+}
+#contentPagerSection{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 600px;
+    margin-top: 20px;
+}
+#sideContainer{
+    position: absolute;
+    width: 160px;
+    height: 600px;
+    left: 660px;
+    top: 140px;
+    background-color: #FFFFFF;
+    margin-left: 10px;
+    padding: 20px;
+    font-family: STSong,SimSum;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: bold;
+}
+a.archiveLink:link,active,hover,visited{
+    font-family: STSong,SimSum;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #0000FF;
+}
+#footerContainer{
+    position: static;
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+.siteTitle{
     font-family: STHeiti,SimHei;
     font-size: 50px;
     font-weight: bold;
@@ -38,4 +107,24 @@ a:link,active,hover,visited{
     font-weight: bold;
     text-decoration: none;
     color: blue;
+}
+a.categoryLink:link,active,hover,visited{
+    font-family: STSong,SimSum;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000000;
+}
+.categoryItem{
+    padding-left: 10px;
+    padding-right: 10px;
+    min-width: 80px;
+    text-align: center;;
+}
+.footerLine{
+	border-style: solid;
+	border-color: #888888;
+	border-width: 1px;
+	width: 700px;
 }

@@ -1,34 +1,48 @@
+{% extends "blog/base.html" %}
 {% load static %}
-<htmL>
-    <head>
-        <title>欢迎光临「大狗汪叨叨」</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'blog/css/style.css' %}">
-    </head>
-    <body>
-        <div style="top:20px;left:20px;position:absolute;">
-            <img src="{% static 'blog/images/logo.jpeg' %}" style="height:100px;" />
-        </div>
-        <div style="top:20px;left:200px;position:absolute;">
-            <span class="pageTitle">大狗汪叨叨</span>
-        </div>
-        <div style="left:20px;top:150px;position:absolute;width:600px;background-color:#FFFFFF;padding:20px;">
-        {% for article in all_articles.object_list %}
-            <h2 class="articleTitle">{{article.title}}</h2>
-            <p class="articleAuthor">by: {{article.author}} {{article.timestamp}}</p>
-            <span class="articleBody">{{article.body|slice:'200'}}...</span>
-            <br/>
-            <a href="article/{{article.id}}">查看全文</a>
-        {%  endfor %}
-            {% if all_articles.has_previous %}
-            <div style="left:200px;position:absolute;width:60px;margin:30px;">
-                <a href="{{all_articles.previous_page_number}}"><< 前滚翻</a>
-            </div>
-            {% endif %}
-            {% if all_articles.has_next %}
-            <div style="left:340px;position:absolute;width:60px;margin:30px">
-                <a href="{{all_articles.next_page_number}}">后滚翻 >></a>
-            </div>
-            {% endif %}
-        </div>
-    </body>
-</html>
+{% block content %}
+<header>
+	{% if cat != nil %}
+	<h2 class="pageTitle">{{cat.name}}</h2>
+	{% elif archiveYear != nil and archiveMonth != nil %}
+	<h2 class="pageTitle">{{archiveYear}}年{{archiveMonth}}月</h2>
+	{% endif %}
+</header>
+{% for article in articles.object_list %}
+<article>
+	<header>
+		<h2 class="articleTitle">{{article.title}}</h2>
+		<p class="articleAuthor">by: {{article.author}} {{article.timestamp}}</p>
+	</header>
+	<span class="articleBody">{{article.body|slice:'200'}}...</span>
+	<br/>
+	<footer>
+		<a href="{% url 'article' article.id %}">查看全文</a>
+	</footer>
+</article>
+{%  endfor %}
+<nav id="contentPagerSection">
+{% if articles.has_previous %}
+	<div style="left:200px;position:relative;width:80px;height:15px;">
+		{% if categoryID != nil %}
+		<a href="{% url 'categoryInPages' categoryID=cat.id pageNo=articles.previous_page_number %}"><< 前滚翻</a>
+		{% elif archiveYear != nil and archiveMonth != nil %}
+		<a href="{% url 'archiveInPages' archiveYear=archiveYear archiveMonth=archiveMonth pageNo=articles.previous_page_number %}"><< 前滚翻</a>
+		{% else %}
+		<a href="{% url 'indexInPages' pageNo=articles.previous_page_number %}"><< 前滚翻</a>
+		{% endif %}
+	</div>
+{% endif %}
+{% if articles.has_next %}
+	<div style="left:340px;top:-15px;position:relative;width:80px;height:15px;">
+		{% if categoryID != nil %}
+		<a href="{% url 'categoryInPages' categoryID=cat.id pageNo=articles.next_page_number %}">后滚翻 >></a>
+		{% elif archiveYear != nil and archiveMonth != nil %}
+		<a href="{% url 'archiveInPages' archiveYear=archiveYear archiveMonth=archiveMonth pageNo=articles.next_page_number %}">后滚翻 >></a>
+		{% else %}
+		<a href="{% url 'indexInPages' pageNo=articles.next_page_number %}">后滚翻 >></a>
+		{% endif %}
+	</div>
+{% endif %}
+</nav>
+{% endblock %}

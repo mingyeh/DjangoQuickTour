@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<htmL>
+    <head>
+	<title>{% block title %}欢迎光临「大狗汪叨叨」{% endblock %}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'blog/css/style.css' %}">
+    </head>
+    <body>
+        <header id="headerContainer">
+            {% include "blog/header.html" %}
+        </header>
+        <section id="contentContainer">
+		  {% block content %}
+		  {% endblock %}
+        </section>
+        <section id="sideContainer">
+            {% include "blog/sidebar.html" %}
+        </section>
+        <footer id="footerContainer"> 
+		  {% include "blog/footer.html" %}
+        </footer>
+    </body>
+</html>

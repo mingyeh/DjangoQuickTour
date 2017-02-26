@@ -7,3 +7,4 @@ class ArticleAdmin(admin.ModelAdmin):
 	search_fields = ['title']
 
 admin.site.register(Article, ArticleAdmin)
+admin.site.register(Category)

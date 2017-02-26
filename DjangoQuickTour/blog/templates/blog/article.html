@@ -1,20 +1,8 @@
+{% extends "blog/base.html" %}
 {% load static %}
-<htmL>
-    <head>
-        <title>欢迎光临「大狗汪叨叨」</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'blog/css/style.css' %}">
-    </head>
-    <body>
-        <div style="top:20px;left:20px;position:absolute;">
-            <img src="{% static 'blog/images/logo.jpeg' %}" style="height:100px;" />
-        </div>
-        <div style="top:20px;left:200px;position:absolute;">
-            <span class="pageTitle">大狗汪叨叨</span>
-        </div>
-        <div style="left:20px;top:150px;position:absolute;width:600px;background-color:#FFFFFF;padding:20px;">
-            <h2 class="articleTitle">{{article.title}}</h2>
-            <p class="articleAuthor">by: {{article.author}} {{article.timestamp}}</p>
-            <span class="articleBody">{{article.body|linebreaks}}</span>
-        </div>
-    </body>
-</html>
+{% block title %}{{article.title}}{% endblock %}
+{% block content %}
+    <h2 class="articleTitle">{{article.title}}</h2>
+    <p class="articleAuthor">by: {{article.author}} {{article.timestamp}}</p>
+    <span class="articleBody">{{article.body|linebreaks}}</span>
+{% endblock %}
